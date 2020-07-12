@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sold
+{% endblock %}
+
+{% block main %}
+    <div class="alert alert-primary" role="alert" style="text-align: center;">
+      Hi {{ username }}!
+    </div>
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col">Name</th>
+      <th scope="col">Shares</th>
+      <th scope="col">Price</th>
+      <th scope="col">TOTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in range(table_count) %}
+      <tr>
+        <td>{{ lines[i]["symbol"] }}</td>
+        <td>{{ lines[i]["name"] }}</td>
+        <td>{{ lines[i]["shares"] }}</td>
+        <td>{{ prices[i] }}</td>
+        <td>{{ values[i] }}</td>
+      </tr>
+    {% endfor %}
+    <tr>
+        <td>CASH</td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>{{ usd_cash }} </td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td style="font-weight: bold;">{{ Sum }}</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}

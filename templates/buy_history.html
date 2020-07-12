@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sold
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col">Shares</th>
+      <th scope="col">Price</th>
+      <th scope="col">Transacted</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for line in lines %}
+      <tr>
+        <td>{{ line["symbol"] }}</td>
+        <td>{{ line["shares"] }}</td>
+        <td>{{ line["price"] }}</td>
+        <td>{{ line["transacted"] }}</td>
+      </tr>
+    {% endfor %}
+     </tbody>
+    </table>
+
+{% endblock %}
